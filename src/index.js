@@ -1,5 +1,5 @@
 // task => string(html)
-const renderTask = ({ text, done }) => `<li data-done="${done}">${text}</li>`;
+const renderTask = ({ id, text, done }) => `<li data-done="${done} data-id = "${id}">${text}</li>`;
 // tasks => string(html) 11/12
 const renderCounter = (tasks) =>
   `
@@ -74,9 +74,21 @@ const render = () => {
 //first render
 render();
 
+const getRandomElement = (arr) => 
+  arr[Math.floor(Math.random() * arr.length)];
+
+const colors = ['lightgreen' , 'lightblue' , 'pink' , 'yellow' , 'silver' , 'floralwhite']
+let colorIndex = 0;
+root.addEventListener('click',() => {
+const color = getRandomElement(colors);
+root.style = `background-color: ${color};`
+});
+
 // mutations
 // debugger;
+/*
 const id = addTask(render, appState, "Задача");
 toggleDoneTask(render, appState, -1);
 changeTask(render, appState, id, "Новый текст");
 removeTask(render, appState, id);
+*/
