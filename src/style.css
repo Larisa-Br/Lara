@@ -22,7 +22,9 @@ h1 {
 
 li {
   margin: 8px 0;
+  cursor: pointer;
 }
+
 li[data-done="true"] {
   text-decoration: line-through;
 }
