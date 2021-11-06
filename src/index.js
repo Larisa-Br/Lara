@@ -37,8 +37,11 @@ const removeTask = (render, { tasks }, id) => {
   render();
 };
 
+//const changeTaskFilter
+
 const appState = {
   nextId: 0,
+  tasksFilter: 'all',
   tasks: [
     {
       id: -1,
@@ -63,7 +66,18 @@ const render = () => {
   root.innerHTML = `
     <div>
       ${hello}
+      div class ="input">
+      <input id="task-input" >
+      <button id="add-btn" >Add</button>
+      </div>
+      <div class="filterCounter">
+
       ${renderCounter(tasks)}
+      <select name="task-filter">
+      <option value ="all selected">All"></option>
+      <option value ="todo">Todo</option>
+      <option value ="done">Done></option>
+      </div>
       <ul>
         ${renderedTasks}
       </ul>
@@ -79,12 +93,29 @@ const render = () => {
       console.log(`clicked ${el.dataset.id}`)
     })
   })
+
+  
+  const input = document.getElementById("task-input")
+  const button = document.getElementById("add-btn")
+  button.addEventListener("click", () => {
+    const newTaskText = input.value.trim()
+    input.value =""
+    if(newTaskText.length !==0) {
+
+    addTask(render, appState, newTaskText)
+    }
+  })
+    const filterSelector =root.querySelector('select[name="task-filter"]')
+    filterSelector.addEventListener("change", (event) => {
+      changeTasksFilter(render, appStateevent.target.value);
+    }
+
 };
 
 //first render
 render();
 
-const getRandomElement = (arr) => 
+/*const getRandomElement = (arr) => 
   arr[Math.floor(Math.random() * arr.length)];
 
 const colors = ['lightgreen', 'lightblue', 'pink', 'yellow', 'silver', 'FloralWhite']
@@ -92,6 +123,8 @@ root.addEventListener('click', () => {
   const color = getRandomElement(colors)
   root.style = `background-color: ${color};`
 })
+*/
+
 
 // mutations
 // debugger;

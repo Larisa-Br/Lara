@@ -13,7 +13,7 @@ h1 {
 #root {
   width: 100vw;
   height: 100vh;
-  background-color: lightpink;
+  background-color: siver;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,6 +29,15 @@ li[data-done="true"] {
   text-decoration: line-through;
 }
 
-.counter {
+/*.counter {
   text-align: right;
+}
+*/
+
+.filterCounter {
+  display:flex;
+  justify-content: space-between;
+}
+.input {
+  margin-bottom:8 px;
 }
