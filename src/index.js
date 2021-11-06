@@ -67,16 +67,15 @@ const render = () => {
     <div>
       ${hello}
       div class ="input">
-      <input id="task-input" >
-      <button id="add-btn" >Add</button>
+        <input id="task-input" >
+        <button id="add-btn" >Add</button>
       </div>
       <div class="filterCounter">
-
-      ${renderCounter(tasks)}
-      <select name="task-filter">
-      <option value ="all selected">All"></option>
-      <option value ="todo">Todo</option>
-      <option value ="done">Done></option>
+        ${renderCounter(tasks)}
+        <select name="task-filter">
+        <option value ="all selected">All"></option>
+        <option value ="todo">Todo</option>
+        <option value ="done">Done></option>
       </div>
       <ul>
         ${renderedTasks}
@@ -101,13 +100,12 @@ const render = () => {
     const newTaskText = input.value.trim()
     input.value =""
     if(newTaskText.length !==0) {
-
     addTask(render, appState, newTaskText)
     }
   })
     const filterSelector =root.querySelector('select[name="task-filter"]')
     filterSelector.addEventListener("change", (event) => {
-      changeTasksFilter(render, appStateevent.target.value);
+      changeTasksFilter(render, appState, event.target.value);
     }
 
 };
