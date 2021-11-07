@@ -10,7 +10,8 @@ const renderCounter = (tasks) =>
     </div>
   `;
 
-const renderSelector = (tasksFilter) => `
+//
+  const renderSelector = (tasksFilter) => `
     <select name="task-filter">
       <option value="all" ${tasksFilter === "all" && "selected"}>All</option>
       <option value="todo" ${tasksFilter === "todo" && "selected"}>Todo</option>
